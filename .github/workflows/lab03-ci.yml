@@ -1,0 +1,32 @@
+name: Lab 03 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab03/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Verify lab-03-1.frpg exists
+        run: test -f labs/lab03/lab-03-1.fprg
+
+      - name: Verify lab-03-2.frpg exists
+        run: test -f labs/lab03/lab-03-2.fprg
+
+      - name: Verify lab-03-3.frpg exists
+        run: test -f labs/lab03/lab-03-3.fprg
+
+      - name: Verify lab-03-4.frpg exists
+        run: test -f labs/lab03/lab-03-4.fprg
+
+      - name: Verify lab-03-5.frpg exists
+        run: test -f labs/lab03/lab-03-5.fprg
+
+      - name: Verify lab-03-6.frpg exists
+        run: test -f labs/lab03/lab-03-6.fprg
+
+
