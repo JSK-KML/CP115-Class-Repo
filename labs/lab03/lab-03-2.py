@@ -1,0 +1,3 @@
+nUMNIGHT = int(input())
+tOTALPAYMENT = nUMNIGHT * 250.0 * 1.15
+print(tOTALPAYMENT)
