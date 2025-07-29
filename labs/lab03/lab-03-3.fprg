@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="lab-03-3"/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-07-22 12:41:18 PM"/>
+        <attribute name="created" value="dXNlcjtLTUxMQUI3LVBDMDY7MjAyNS0wNy0yMjsxMjoxNDoyMCBQTTsyNTA1"/>
+        <attribute name="edited" value="dXNlcjtLTUxMQUI3LVBDMDY7MjAyNS0wNy0yMjsxMjo0MToxOCBQTTs0OzI2MjM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="kilobyte" type="Real" array="False" size=""/>
+            <input variable="kilobyte"/>
+            <declare name="megabyte" type="Real" array="False" size=""/>
+            <declare name="gigabyte" type="Real" array="False" size=""/>
+            <declare name="terabyte" type="Real" array="False" size=""/>
+            <declare name="petabyte" type="Real" array="False" size=""/>
+            <assign variable="megabyte" expression="kilobyte / 1000"/>
+            <assign variable="gigabyte" expression="kilobyte / 1000 / 1000"/>
+            <assign variable="terabyte" expression="kilobyte / 1000 / 1000 / 1000"/>
+            <assign variable="petabyte" expression="kilobyte / 1000 / 1000 /1000 / 1000"/>
+        </body>
+    </function>
+</flowgorithm>

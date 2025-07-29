@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="example-Lab-4"/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-07-28 11:30:41 AM"/>
+        <attribute name="created" value="dXNlcjtLTUxMQUI3LVBDMDY7MjAyNS0wNy0yODsxMToyNTowNSBBTTsyNTAw"/>
+        <attribute name="edited" value="dXNlcjtLTUxMQUI3LVBDMDY7MjAyNS0wNy0yODsxMTozMDo0MSBBTTsxOzI2MDQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="magazineNumber" type="Integer" array="False" size=""/>
+            <input variable="magazineNumber"/>
+            <declare name="unitPrice" type="Integer" array="False" size=""/>
+            <if expression="magazineNumber &gt;= 5">
+                <then>
+                    <assign variable="unitPrice" expression="5"/>
+                </then>
+                <else>
+                    <assign variable="unitPrice" expression="7"/>
+                </else>
+            </if>
+            <declare name="finalPrice" type="Integer" array="False" size=""/>
+            <assign variable="finalPrice" expression="magazineNumber * unitPrice"/>
+            <output expression="finalPrice" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
