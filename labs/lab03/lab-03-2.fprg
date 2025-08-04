@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="lab-03-1 scenario 2"/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-07-21 12:44:22 PM"/>
+        <attribute name="created" value="dXNlcjtLTUxMQUI3LVBDMTM7MjAyNS0wNy0yMTsxMTo0MDoyNiBBTTsyNDkx"/>
+        <attribute name="edited" value="dXNlcjtLTUxMQUI3LVBDMTM7MjAyNS0wNy0yMTsxMjo0NDoyMiBQTTsyOzI2MTY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n" type="Real" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="basicRate" type="Real" array="False" size=""/>
+            <assign variable="basicRate" expression="250"/>
+            <declare name="rate" type="Real" array="False" size=""/>
+            <assign variable="rate" expression="15/100"/>
+            <declare name="totalPrice" type="Real" array="False" size=""/>
+            <assign variable="totalPrice" expression="(n*basicRate)+((n*basicRate)*rate)"/>
+            <output expression="totalPrice" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
