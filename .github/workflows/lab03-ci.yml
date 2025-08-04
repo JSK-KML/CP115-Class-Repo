@@ -8,25 +8,56 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/lab03
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: Verify lab-03-1.frpg exists
-        run: test -f labs/lab03/lab-03-1.fprg
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-      - name: Verify lab-03-2.frpg exists
-        run: test -f labs/lab03/lab-03-2.fprg
+      # Scenario 1
+      - name: Verify lab-03-2.fprg exists
+        run: test -f lab-03-2.fprg
+      - name: Test Scenario 1
+        run: python test.py --script lab-03-2.py
 
-      - name: Verify lab-03-3.frpg exists
-        run: test -f labs/lab03/lab-03-3.fprg
+      # Scenario 2
+      - name: Verify lab-03-3.fprg exists
+        run: test -f lab-03-3.fprg
+      - name: Test Scenario 2
+        run: python test.py --script lab-03-3.py
 
-      - name: Verify lab-03-4.frpg exists
-        run: test -f labs/lab03/lab-03-4.fprg
+      # Scenario 3
+      - name: Verify lab-03-4.fprg exists
+        run: test -f lab-03-4.fprg
+      - name: Test Scenario 3
+        run: python test.py --script lab-03-4.py
 
-      - name: Verify lab-03-5.frpg exists
-        run: test -f labs/lab03/lab-03-5.fprg
+      # Scenario 4
+      - name: Verify lab-03-5.fprg exists
+        run: test -f lab-03-5.fprg
+      - name: Test Scenario 4
+        run: python test.py --script lab-03-5.py
 
-      - name: Verify lab-03-6.frpg exists
-        run: test -f labs/lab03/lab-03-6.fprg
+      # Scenario 5
+      - name: Verify lab-03-6.fprg exists
+        run: test -f lab-03-6.fprg
+      - name: Test Scenario 5
+        run: python test.py --script lab-03-6.py
 
+      # Scenario 6
+      - name: Verify lab-03-7.fprg exists
+        run: test -f lab-03-7.fprg
+      - name: Test Scenario 6
+        run: python test.py --script lab-03-7.py
 
+      # Scenario 7
+      - name: Verify lab-03-8.fprg exists
+        run: test -f lab-03-8.fprg
+      - name: Test Scenario 7
+        run: python test.py --script lab-03-8.py

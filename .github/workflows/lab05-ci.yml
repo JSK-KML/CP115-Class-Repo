@@ -1,0 +1,43 @@
+name: Lab 05 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab05/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/lab05
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Check for exercise1.py through exercise7.py
+      - name: Verify exercise1.py exists
+        run: test -f exercise1.py
+
+      - name: Verify exercise2.py exists
+        run: test -f exercise2.py
+
+      - name: Verify exercise3.py exists
+        run: test -f exercise3.py
+
+      - name: Verify exercise4.py exists
+        run: test -f exercise4.py
+
+      - name: Verify exercise5.py exists
+        run: test -f exercise5.py
+
+      - name: Verify exercise6.py exists
+        run: test -f exercise6.py
+
+      - name: Verify exercise7.py exists
+        run: test -f exercise7.py
