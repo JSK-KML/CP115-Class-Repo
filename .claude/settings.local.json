@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(mkdir:*)",
-      "Bash(dir \"C:\\Users\\muhda\\Downloads\\CP115\\CP115-Class-Repo\\.github\")"
-    ],
-    "deny": []
-  }
-}
