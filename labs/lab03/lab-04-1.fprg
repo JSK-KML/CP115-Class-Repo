@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="lab-04-1"/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-07-28 11:56:48 AM"/>
+        <attribute name="created" value="dXNlcjtLTUxMQUI3LVBDMDY7MjAyNS0wNy0yODsxMTo0Njo1NCBBTTsyNTA3"/>
+        <attribute name="edited" value="dXNlcjtLTUxMQUI3LVBDMDY7MjAyNS0wNy0yODsxMTo0Njo1NiBBTTsxO3VzZXI7S01MTEFCNy1QQzA2OzIwMjUtMDctMjg7MTE6MzE6MDYgQU07TGFiLTQtU2NlbmFyaW8gMS5mcHJnOzcwMjQ="/>
+        <attribute name="edited" value="dXNlcjtLTUxMQUI3LVBDMDY7MjAyNS0wNy0yODsxMTo1Njo0OCBBTTsxOzI2MTk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="usage" type="Integer" array="False" size=""/>
+            <input variable="usage"/>
+            <declare name="charge" type="Real" array="False" size=""/>
+            <if expression="usage &gt; 200">
+                <then>
+                    <assign variable="charge" expression="0.75"/>
+                </then>
+                <else>
+                    <if expression="usage &gt; 100">
+                        <then>
+                            <assign variable="charge" expression="0.50"/>
+                        </then>
+                        <else>
+                            <assign variable="charge" expression="0.30"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <declare name="totalBill" type="Real" array="False" size=""/>
+            <assign variable="totalBill" expression="usage * charge"/>
+            <output expression="totalBill" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
