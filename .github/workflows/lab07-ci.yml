@@ -1,0 +1,65 @@
+name: Lab 07 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab07/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/lab07
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Check for exercise files
+      - name: Verify exercise1.py exists
+        run: test -f exercise1.py
+
+      - name: Verify exercise2.py exists
+        run: test -f exercise2.py
+
+      - name: Verify exercise3.py exists
+        run: test -f exercise3.py
+
+      - name: Verify exercise4.py exists
+        run: test -f exercise4.py
+
+      # Check for module example files
+      - name: Verify my_data.py exists
+        run: test -f my_data.py
+
+      - name: Verify use_my_data.py exists
+        run: test -f use_my_data.py
+
+      # Check for import exercise files
+      - name: Verify shopping_data.py exists
+        run: test -f shopping_data.py
+
+      - name: Verify school_data.py exists
+        run: test -f school_data.py
+
+      - name: Verify display_student.py exists
+        run: test -f display_student.py
+
+      # Check for restaurant system files
+      - name: Verify menu_data.py exists
+        run: test -f menu_data.py
+
+      - name: Verify restaurant_display.py exists
+        run: test -f restaurant_display.py
+
+      # Check for personal info manager files
+      - name: Verify personal_data.py exists
+        run: test -f personal_data.py
+
+      - name: Verify personal_profile.py exists
+        run: test -f personal_profile.py

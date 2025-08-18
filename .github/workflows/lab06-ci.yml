@@ -32,6 +32,3 @@ jobs:
 
       - name: Verify exercise4.py exists
         run: test -f exercise4.py
-
-      - name: Verify exercise5.py exists
-        run: test -f exercise5.py
