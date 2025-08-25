@@ -1,0 +1,49 @@
+name: Lab 08 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab08/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/lab08
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Check for exercise files
+      - name: Verify exercise.py exists
+        run: test -f exercise.py
+
+      - name: Verify exercise1.py exists
+        run: test -f exercise1.py
+
+      - name: Verify exercise2.py exists
+        run: test -f exercise2.py
+
+      - name: Verify exercise3/student_grades.py exists
+        run: test -f exercise3/student_grades.py
+
+      - name: Verify exercise4/membership_calc.py exists
+        run: test -f exercise4/membership_calc.py
+
+      - name: Verify exercise5/employee_data.py exists
+        run: test -f exercise5/employee_data.py
+
+      - name: Verify exercise5/salary_calc.py exists
+        run: test -f exercise5/salary_calc.py
+
+      - name: Verify exercise6/physics_constants.py exists
+        run: test -f exercise6/physics_constants.py
+
+      - name: Verify exercise6/motion_calculator.py exists
+        run: test -f exercise6/motion_calculator.py
