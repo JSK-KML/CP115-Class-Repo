@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="lab-03-6"/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-07-21 01:02:04 PM"/>
+        <attribute name="created" value="dXNlcjtLTUxMQUI3LVBDMTM7MjAyNS0wNy0yMTsxMjo0NTowMSBQTTsyNTA1"/>
+        <attribute name="edited" value="dXNlcjtLTUxMQUI3LVBDMTM7MjAyNS0wNy0yMTswMTowMjowNCBQTTsyOzI2MDg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="yardLength" type="Real" array="False" size=""/>
+            <input variable="yardLength"/>
+            <declare name="yardWidth" type="Real" array="False" size=""/>
+            <input variable="yardWidth"/>
+            <declare name="YardArea" type="Real" array="False" size=""/>
+            <assign variable="YardArea" expression="yardLength*yardWidth"/>
+            <output expression="YardArea" newline="True"/>
+            <declare name="BuiltinLength" type="Real" array="False" size=""/>
+            <input variable="BuiltinLength"/>
+            <declare name="BuiltinWidth" type="Real" array="False" size=""/>
+            <input variable="BuiltinWidth"/>
+            <declare name="BuiltinArea" type="Real" array="False" size=""/>
+            <assign variable="BuiltinArea" expression="BuiltinLength*BuiltinWidth"/>
+            <output expression="BuiltinArea" newline="True"/>
+            <declare name="MowedArea" type="Real" array="False" size=""/>
+            <assign variable="MowedArea" expression="YardArea-BuiltinArea"/>
+            <output expression="MowedArea" newline="True"/>
+            <declare name="Cost" type="Real" array="False" size=""/>
+            <assign variable="Cost" expression="MowedArea*2"/>
+            <output expression="Cost" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
