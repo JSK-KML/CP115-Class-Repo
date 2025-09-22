@@ -38,6 +38,21 @@ jobs:
       - name: Verify exercise4.py exists
         run: test -f exercise4/exercise4.py
 
+      - name: Verify exercise5.py exists
+        run: test -f exercise5/exercise5.py
+
+      - name: Verify exercise6.py exists
+        run: test -f exercise6/exercise6.py
+
+      - name: Verify exercise7.py exists
+        run: test -f exercise7/exercise7.py
+
+      - name: Verify exercise8.py exists
+        run: test -f exercise8/exercise8.py
+
+      - name: Verify exercise9.py exists
+        run: test -f exercise9/exercise9.py
+
       # Check for test files
       - name: Verify exercise1 tests exist
         run: test -f exercise1/test/test_exercise1.py
@@ -50,6 +65,21 @@ jobs:
 
       - name: Verify exercise4 tests exist
         run: test -f exercise4/test/test_exercise4.py
+
+      - name: Verify exercise5 tests exist
+        run: test -f exercise5/test/test_exercise5.py
+
+      - name: Verify exercise6 tests exist
+        run: test -f exercise6/test/test_exercise6.py
+
+      - name: Verify exercise7 tests exist
+        run: test -f exercise7/test/test_exercise7.py
+
+      - name: Verify exercise8 tests exist
+        run: test -f exercise8/test/test_exercise8.py
+
+      - name: Verify exercise9 tests exist
+        run: test -f exercise9/test/test_exercise9.py
 
       # Run pytest tests for each exercise
       - name: Run Exercise 1 tests
@@ -66,6 +96,26 @@ jobs:
 
       - name: Run Exercise 4 tests
         run: python -m pytest exercise4/test/ -v
+        continue-on-error: true
+
+      - name: Run Exercise 5 tests
+        run: python -m pytest exercise5/test/ -v
+        continue-on-error: true
+
+      - name: Run Exercise 6 tests
+        run: python -m pytest exercise6/test/ -v
+        continue-on-error: true
+
+      - name: Run Exercise 7 tests
+        run: python -m pytest exercise7/test/ -v
+        continue-on-error: true
+
+      - name: Run Exercise 8 tests
+        run: python -m pytest exercise8/test/ -v
+        continue-on-error: true
+
+      - name: Run Exercise 9 tests
+        run: python -m pytest exercise9/test/ -v
         continue-on-error: true
 
       # Run all tests together for final status

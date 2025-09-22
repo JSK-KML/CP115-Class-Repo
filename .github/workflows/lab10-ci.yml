@@ -1,0 +1,63 @@
+name: Lab 10 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab10/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/lab10
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      # Check for exercise files
+      - name: Verify exercise1.py exists
+        run: test -f exercise1/exercise1.py
+
+      - name: Verify exercise2.py exists
+        run: test -f exercise2/exercise2.py
+
+      - name: Verify exercise3.py exists
+        run: test -f exercise3/exercise3.py
+
+      # Check for test files
+      - name: Verify exercise1 tests exist
+        run: test -f exercise1/test/test_exercise1.py
+
+      - name: Verify exercise2 tests exist
+        run: test -f exercise2/test/test_exercise2.py
+
+      - name: Verify exercise3 tests exist
+        run: test -f exercise3/test/test_exercise3.py
+
+      # Run pytest tests for each exercise
+      - name: Run Exercise 1 tests
+        run: python -m pytest exercise1/test/ -v
+        continue-on-error: true
+
+      - name: Run Exercise 2 tests
+        run: python -m pytest exercise2/test/ -v
+        continue-on-error: true
+
+      - name: Run Exercise 3 tests
+        run: python -m pytest exercise3/test/ -v
+        continue-on-error: true
+
+      # Run all tests together for final status
+      - name: Run All Lab 10 Tests
+        run: python -m pytest -v

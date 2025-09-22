@@ -61,9 +61,9 @@ def test_water_bill_calculations(exercise_path, current, previous, expected_cons
     
     consumption, water_cost, total_bill = extract_results(output)
     
-    assert consumption == expected_consumption, f"Expected consumption {expected_consumption} but got {consumption}"
-    assert abs(water_cost - expected_water_cost) < 0.01, f"Expected water cost {expected_water_cost} but got {water_cost}"
-    assert abs(total_bill - expected_total) < 0.01, f"Expected total bill {expected_total} but got {total_bill}"
+    assert consumption == expected_consumption, f"\nInput: Current={current}, Previous={previous}\nExpected consumption: {expected_consumption}, Got: {consumption}"
+    assert abs(water_cost - expected_water_cost) < 0.01, f"\nInput: Current={current}, Previous={previous}\nExpected water cost: {expected_water_cost}, Got: {water_cost}"
+    assert abs(total_bill - expected_total) < 0.01, f"\nInput: Current={current}, Previous={previous}\nExpected total bill: {expected_total}, Got: {total_bill}"
 
 @pytest.mark.parametrize("consumption,expected_water_cost", [
     # Boundary tests for tier transitions
@@ -82,8 +82,8 @@ def test_tier_boundaries(exercise_path, consumption, expected_water_cost):
     
     actual_consumption, actual_water_cost, _ = extract_results(output)
     
-    assert actual_consumption == consumption, f"Expected consumption {consumption} but got {actual_consumption}"
-    assert abs(actual_water_cost - expected_water_cost) < 0.01, f"Expected water cost {expected_water_cost} but got {actual_water_cost}"
+    assert actual_consumption == consumption, f"\nInput: Consumption={consumption}\nExpected: {consumption}, Got: {actual_consumption}"
+    assert abs(actual_water_cost - expected_water_cost) < 0.01, f"\nInput: Consumption={consumption}\nExpected water cost: {expected_water_cost}, Got: {actual_water_cost}"
 
 def test_zero_consumption(exercise_path):
     """Test zero water consumption"""
@@ -92,9 +92,9 @@ def test_zero_consumption(exercise_path):
     
     consumption, water_cost, total_bill = extract_results(output)
     
-    assert consumption == 0, f"Expected consumption 0 but got {consumption}"
-    assert water_cost == 0.0, f"Expected water cost 0.0 but got {water_cost}"
-    assert total_bill == 10.0, f"Expected total bill 10.0 (service charges only) but got {total_bill}"
+    assert consumption == 0, f"\nInput: Current=1000, Previous=1000\nExpected consumption: 0, Got: {consumption}"
+    assert water_cost == 0.0, f"\nInput: Current=1000, Previous=1000\nExpected water cost: 0.0, Got: {water_cost}"
+    assert total_bill == 10.0, f"\nInput: Current=1000, Previous=1000\nExpected total bill: 10.0, Got: {total_bill}"
 
 def test_service_charges_applied(exercise_path):
     """Test that service charge (RM8) and sewerage (RM2) are always applied"""
@@ -103,12 +103,12 @@ def test_service_charges_applied(exercise_path):
     
     consumption, water_cost, total_bill = extract_results(output)
     
-    assert consumption == 1, "Expected consumption 1"
+    assert consumption == 1, f"\nInput: Current=1001, Previous=1000\nExpected consumption: 1, Got: {consumption}"
     expected_water_cost = 1 * 0.57  # 0.57
     expected_total = expected_water_cost + 8 + 2  # 0.57 + 10 = 10.57
     
-    assert abs(water_cost - expected_water_cost) < 0.01, f"Expected water cost {expected_water_cost} but got {water_cost}"
-    assert abs(total_bill - expected_total) < 0.01, f"Expected total bill {expected_total} but got {total_bill}"
+    assert abs(water_cost - expected_water_cost) < 0.01, f"\nInput: Current=1001, Previous=1000\nExpected water cost: {expected_water_cost}, Got: {water_cost}"
+    assert abs(total_bill - expected_total) < 0.01, f"\nInput: Current=1001, Previous=1000\nExpected total bill: {expected_total}, Got: {total_bill}"
 
 def test_large_consumption(exercise_path):
     """Test calculation with very large water consumption"""
@@ -117,15 +117,15 @@ def test_large_consumption(exercise_path):
     
     consumption, water_cost, total_bill = extract_results(output)
     
-    assert consumption == 500, "Expected consumption 500"
+    assert consumption == 500, f"\nInput: Current=1500, Previous=1000\nExpected consumption: 500, Got: {consumption}"
     
     # Calculate expected cost: (20*0.57) + (15*1.03) + (465*1.40)
     expected_water_cost = (20 * 0.57) + (15 * 1.03) + (465 * 1.40)
     expected_water_cost = 11.40 + 15.45 + 651.00  # = 677.85
     expected_total = expected_water_cost + 10  # 687.85
     
-    assert abs(water_cost - expected_water_cost) < 0.01, f"Expected water cost {expected_water_cost} but got {water_cost}"
-    assert abs(total_bill - expected_total) < 0.01, f"Expected total bill {expected_total} but got {total_bill}"
+    assert abs(water_cost - expected_water_cost) < 0.01, f"\nInput: Current=1500, Previous=1000\nExpected water cost: {expected_water_cost}, Got: {water_cost}"
+    assert abs(total_bill - expected_total) < 0.01, f"\nInput: Current=1500, Previous=1000\nExpected total bill: {expected_total}, Got: {total_bill}"
 
 @pytest.mark.parametrize("tier,consumption,rate", [
     ("Tier 1", 20, 0.57),
@@ -150,5 +150,5 @@ def test_individual_tiers(exercise_path, tier, consumption, rate):
     actual_consumption, actual_water_cost, _ = extract_results(output)
     
     expected_consumption = current - 1000
-    assert actual_consumption == expected_consumption, f"Expected consumption {expected_consumption} but got {actual_consumption}"
-    assert abs(actual_water_cost - expected_water_cost) < 0.01, f"Expected water cost {expected_water_cost} but got {actual_water_cost}"
+    assert actual_consumption == expected_consumption, f"\nInput: {tier}, Current={current}, Previous=1000\nExpected consumption: {expected_consumption}, Got: {actual_consumption}"
+    assert abs(actual_water_cost - expected_water_cost) < 0.01, f"\nInput: {tier}, Current={current}, Previous=1000\nExpected water cost: {expected_water_cost}, Got: {actual_water_cost}"
