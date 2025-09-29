@@ -1,7 +1,17 @@
-target_points = int(input())
+# Ask for the target points
+target = int(input())
 
-# TODO: Your code here
-# Use input() inside the while loop to get points each round
+# Start with 0 points and 0 rounds
+total = 0
+rounds = 0
 
-print(total_points)
-print(rounds_played)
+# Keep asking until total reaches or passes the target
+while total < target:
+    points = int(input())
+    total = total + points   # add points to total
+    rounds = rounds + 1      # count this round
+
+# Show results after loop ends
+print(total)
+print(rounds)
+
