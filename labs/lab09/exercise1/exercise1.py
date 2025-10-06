@@ -4,7 +4,14 @@ student_name = input("Enter student name: ")
 gpa = float(input("Enter GPA (0.0-4.0): "))
 credit_hours = int(input("Enter credit hours: "))
 
-# TODO your code here
+if gpa <= 1.99
+    classification = "Academic Probation"
+elif gpa <= 3.49
+    classification = "Good Standing"
+elif gpa <= 3.79
+    classification = "Honor Roll"
+
+        
 
 # Display results
 print(f"\nStudent: {student_name}")
