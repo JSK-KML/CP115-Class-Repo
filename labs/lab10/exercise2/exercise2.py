@@ -1,27 +1,25 @@
-# Ask for age and number of accidents
-age = int(input("Enter your age: "))
-accidents = int(input("Enter number of accidents: "))
+age = int(input())
+accident_count = int(input())
 
-# Step 1: Base premium by age
+# Determine base premium
 if age < 25:
-    premium = 2400
+    base_premium = 2400
 elif age <= 50:
-    premium = 1800
+    base_premium = 1800
 else:
-    premium = 2000
+    base_premium = 2000
 
-# Step 2: Accident penalty
-if accidents == 0:
-    premium = premium  # no change
-elif accidents <= 2:
-    premium = premium + 300
+# Calculate penalties or discounts
+if accident_count == 0:
+    discount_amount = int(base_premium * 0.10)
+    final_premium = base_premium - discount_amount
 else:
-    premium = premium + 600
+    penalty = accident_count * 300
+    if penalty > 600:
+        penalty = 600
+    final_premium = base_premium + penalty
+    discount_amount = 0
 
-# Step 3: Good driver discount
-if accidents == 0:
-    discount = premium * 0.10
-    premium = premium - discount
-
-# Show final result
-print("Your insurance premium is RM", premium)
+print(base_premium)
+print(final_premium)
+print(discount_amount)
