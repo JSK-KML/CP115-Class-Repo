@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="lab-03-3"/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-07-21 12:20:16 PM"/>
+        <attribute name="created" value="dXNlcjtLTUxMQUI3LVBDMTM7MjAyNS0wNy0yMTsxMTo1NTo1MSBBTTsyNDk1"/>
+        <attribute name="edited" value="dXNlcjtLTUxMQUI3LVBDMTM7MjAyNS0wNy0yMTsxMjoyMDoxNiBQTTsyOzI2MTM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="storage" type="Real" array="False" size=""/>
+            <input variable="storage"/>
+            <declare name="megabyte" type="Real" array="False" size=""/>
+            <assign variable="megabyte" expression="storage/1024"/>
+            <output expression="megabyte" newline="True"/>
+            <declare name="gigabyte" type="Real" array="False" size=""/>
+            <assign variable="gigabyte" expression="megabyte/1024"/>
+            <output expression="gigabyte" newline="True"/>
+            <declare name="terabyte" type="Real" array="False" size=""/>
+            <assign variable="terabyte" expression="gigabyte/1024"/>
+            <output expression="terabyte" newline="True"/>
+            <declare name="petabyte" type="Real" array="False" size=""/>
+            <assign variable="petabyte" expression="terabyte/1024"/>
+            <output expression="petabyte" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

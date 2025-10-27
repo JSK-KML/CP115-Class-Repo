@@ -39,10 +39,9 @@ def test_student_classifications(exercise_path, gpa, credits, expected_classific
     inputs = f"Test Student\n{gpa}\n{credits}\n"
     output = run_exercise(exercise_path, inputs)
     
-    # Extract just the classification from the output
     lines = output.strip().split('\n')
-    classification_line = [line for line in lines if "Classification:" in line][0]
-    actual_classification = classification_line.split("Classification: ")[1]
+    classification_line = next(line for line in lines if "Classification:" in line)
+    actual_classification = classification_line.split("Classification:")[-1].strip()
     
     assert actual_classification == expected_classification, f"Expected '{expected_classification}' but got '{actual_classification}'"
 
@@ -56,9 +55,9 @@ def test_part_time_students(exercise_path, gpa, credits, expected_classification
     inputs = f"Test Student\n{gpa}\n{credits}\n"
     output = run_exercise(exercise_path, inputs)
     
-    # Extract just the classification from the output
     lines = output.strip().split('\n')
-    classification_line = [line for line in lines if "Classification:" in line][0]
-    actual_classification = classification_line.split("Classification: ")[1]
+    classification_line = next(line for line in lines if "Classification:" in line)
+    actual_classification = classification_line.split("Classification:")[-1].strip()
     
     assert actual_classification == expected_classification, f"Expected '{expected_classification}' but got '{actual_classification}'"
+
