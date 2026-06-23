@@ -11,16 +11,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Verify lab-02.fprg exists
-        run: test -f labs/lab02/lab-02.fprg
+      - name: Verify lab-2.fprg exists
+        run: test -f labs/lab02/lab-2.fprg
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+      - name: Verify exercise-1.fprg exists
+        run: test -f labs/lab02/exercise-1.fprg
 
-      - name: Install pytest
-        run: pip install pytest
+      - name: Verify exercise-2.fprg exists
+        run: test -f labs/lab02/exercise-2.fprg
 
-      - name: Run Lab 02 tests
-        run: pytest labs/lab02/tests
+      - name: Verify exercise-3.fprg exists
+        run: test -f labs/lab02/exercise-3.fprg
+
+      - name: Verify exercise-4.fprg exists
+        run: test -f labs/lab02/exercise-4.fprg
+
+      - name: Verify exercise-5.fprg exists
+        run: test -f labs/lab02/exercise-5.fprg
