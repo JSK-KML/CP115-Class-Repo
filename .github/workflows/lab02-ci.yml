@@ -1,0 +1,30 @@
+name: Lab 02 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab02/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Verify lab-2.fprg exists
+        run: test -f labs/lab02/lab-2.fprg
+
+      - name: Verify exercise-1.fprg exists
+        run: test -f labs/lab02/exercise-1.fprg
+
+      - name: Verify exercise-2.fprg exists
+        run: test -f labs/lab02/exercise-2.fprg
+
+      - name: Verify exercise-3.fprg exists
+        run: test -f labs/lab02/exercise-3.fprg
+
+      - name: Verify exercise-4.fprg exists
+        run: test -f labs/lab02/exercise-4.fprg
+
+      - name: Verify exercise-5.fprg exists
+        run: test -f labs/lab02/exercise-5.fprg
