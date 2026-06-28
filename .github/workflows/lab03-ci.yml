@@ -1,0 +1,23 @@
+name: Lab 03 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab03/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run Lab 03 tests
+        run: pytest labs/lab03
