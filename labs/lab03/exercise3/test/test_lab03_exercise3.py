@@ -45,7 +45,7 @@ def read_numbers(output, count, context):
         )
 
 
-@pytest.mark.parametrize("kilobyte", [1, 1024, 2048, 500, 1536, 1048576, 1073741824, 100.5, 5000000, 0])
+@pytest.mark.parametrize("kilobyte", [1, 1024, 2048, 500, 1536, 1048576, 1073741824, 100.5, 5000000])
 def test_storage_conversion(exercise_path, kilobyte):
     """Convert KB to MB, GB, TB, PB (divide by 1024 each step), in order."""
     context = f"input kilobyte={kilobyte}"

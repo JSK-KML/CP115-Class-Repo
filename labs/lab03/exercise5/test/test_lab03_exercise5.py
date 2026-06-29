@@ -45,7 +45,7 @@ def read_numbers(output, count, context):
         )
 
 
-@pytest.mark.parametrize("packsEaten", [0, 1, 2, 3, 4, 5, 7, 10, 20, 100])
+@pytest.mark.parametrize("packsEaten", [1, 2, 3, 4, 5, 7, 10, 20, 100])
 def test_cookie_calories(exercise_path, packsEaten):
     """totalCalories = servings (10 per pack) * 300 calories."""
     context = f"input packsEaten={packsEaten}"

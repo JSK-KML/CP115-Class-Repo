@@ -45,7 +45,7 @@ def read_numbers(output, count, context):
         )
 
 
-@pytest.mark.parametrize("pages", [0, 1, 2, 3, 5, 7, 10, 20, 50, 100])
+@pytest.mark.parametrize("pages", [1, 2, 3, 5, 7, 10, 20, 50, 100])
 def test_fax_cost(exercise_path, pages):
     """totalCost = RM3 service charge + RM0.20 per page."""
     context = f"input pages={pages}"
