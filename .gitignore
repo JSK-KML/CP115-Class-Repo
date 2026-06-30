@@ -64,3 +64,11 @@ Desktop.ini
 # Claude Code files
 CLAUDE.md
 .claude*
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
