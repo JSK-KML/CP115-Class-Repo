@@ -6,12 +6,10 @@ import os
 
 @pytest.fixture
 def exercise_path():
-    """Path to the student's solution file."""
-    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'lab-03-5.py')
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'lab-4-1.py')
 
 
 def run_exercise(exercise_path, inputs):
-    """Run the solution with the given stdin and return its stdout."""
     process = subprocess.Popen(
         [sys.executable, exercise_path],
         stdin=subprocess.PIPE,
@@ -30,7 +28,6 @@ def run_exercise(exercise_path, inputs):
 
 
 def read_numbers(output, count, context):
-    """Parse exactly `count` numbers (one per line) from the output, or fail clearly."""
     lines = output.strip().split('\n') if output.strip() else []
     if len(lines) != count:
         pytest.fail(
@@ -46,14 +43,20 @@ def read_numbers(output, count, context):
         )
 
 
-@pytest.mark.parametrize("packsEaten", [1, 2, 3, 4, 5, 7, 10, 20, 100])
-def test_cookie_calories(exercise_path, packsEaten):
-    """totalCalories = servings (10 per pack) * 300 calories."""
-    context = f"input packsEaten={packsEaten}"
-    output = run_exercise(exercise_path, f"{packsEaten}\n")
+def electricity_bill(kwh):
+    tier1 = min(kwh, 100) * 0.30
+    tier2 = max(0, min(kwh, 200) - 100) * 0.50
+    tier3 = max(0, kwh - 200) * 0.75
+    return tier1 + tier2 + tier3
+
+
+@pytest.mark.parametrize("kwh", [50, 100, 150, 200, 250, 0, 101, 300, 175, 500])
+def test_electricity_bill(exercise_path, kwh):
+    context = f"input kwh={kwh}"
+    output = run_exercise(exercise_path, f"{kwh}\n")
     (result,) = read_numbers(output, 1, context)
 
-    expected = round(packsEaten * 10 * 300, 2)
+    expected = round(electricity_bill(kwh), 2)
     got = round(result, 2)
 
     assert got == expected, f"{context} -> expected {expected} but got {got}"

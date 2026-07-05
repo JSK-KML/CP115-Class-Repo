@@ -22,8 +22,9 @@ def run_exercise(exercise_path, inputs):
 
     stdout, stderr = process.communicate(input=inputs)
 
-    if stderr:
-        pytest.fail(f"Error running script: {stderr}")
+    if process.returncode != 0:
+        error = stderr.strip().splitlines()[-1] if stderr.strip() else "the program crashed"
+        pytest.fail(f"the program did not run: {error}")
 
     return stdout
 
