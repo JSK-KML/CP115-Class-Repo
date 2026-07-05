@@ -40,7 +40,7 @@ jobs:
           test -f exercise2/lab-03-2.py
       - name: Exercise 2 - run tests
         if: always()
-        run: python -m pytest exercise2/test/ -v
+        run: python -m pytest exercise2/test/ --tb=no -q --no-header
 
       # --- Exercise 3 ---
       - name: Exercise 3 - verify files exist
@@ -50,7 +50,7 @@ jobs:
           test -f exercise3/lab-03-3.py
       - name: Exercise 3 - run tests
         if: always()
-        run: python -m pytest exercise3/test/ -v
+        run: python -m pytest exercise3/test/ --tb=no -q --no-header
 
       # --- Exercise 4 ---
       - name: Exercise 4 - verify files exist
@@ -60,7 +60,7 @@ jobs:
           test -f exercise4/lab-03-4.py
       - name: Exercise 4 - run tests
         if: always()
-        run: python -m pytest exercise4/test/ -v
+        run: python -m pytest exercise4/test/ --tb=no -q --no-header
 
       # --- Exercise 5 ---
       - name: Exercise 5 - verify files exist
@@ -70,7 +70,7 @@ jobs:
           test -f exercise5/lab-03-5.py
       - name: Exercise 5 - run tests
         if: always()
-        run: python -m pytest exercise5/test/ -v
+        run: python -m pytest exercise5/test/ --tb=no -q --no-header
 
       # --- Exercise 6 ---
       - name: Exercise 6 - verify files exist
@@ -80,7 +80,7 @@ jobs:
           test -f exercise6/lab-03-6.py
       - name: Exercise 6 - run tests
         if: always()
-        run: python -m pytest exercise6/test/ -v
+        run: python -m pytest exercise6/test/ --tb=no -q --no-header
 
       # --- Exercise 7 ---
       - name: Exercise 7 - verify files exist
@@ -90,7 +90,7 @@ jobs:
           test -f exercise7/lab-03-7.py
       - name: Exercise 7 - run tests
         if: always()
-        run: python -m pytest exercise7/test/ -v
+        run: python -m pytest exercise7/test/ --tb=no -q --no-header
 
       # --- Exercise 8 ---
       - name: Exercise 8 - verify files exist
@@ -100,4 +100,4 @@ jobs:
           test -f exercise8/lab-03-8.py
       - name: Exercise 8 - run tests
         if: always()
-        run: python -m pytest exercise8/test/ -v
+        run: python -m pytest exercise8/test/ --tb=no -q --no-header

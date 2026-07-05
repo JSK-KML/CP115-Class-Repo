@@ -1,0 +1,73 @@
+name: Lab 04 Tests
+
+on:
+  push:
+    paths:
+      - 'labs/lab04/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/lab04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      # --- Worked example (files only, no test) ---
+      - name: Example - verify files exist
+        if: always()
+        run: |
+          test -f example/lab-4-0.png
+          test -f example/lab-4-0.py
+
+      # --- Exercise 1 ---
+      - name: Exercise 1 - verify files exist
+        if: always()
+        run: |
+          test -f exercise1/lab-4-1.png
+          test -f exercise1/lab-4-1.py
+      - name: Exercise 1 - run tests
+        if: always()
+        run: python -m pytest exercise1/test/ --tb=no -q --no-header
+
+      # --- Exercise 2 ---
+      - name: Exercise 2 - verify files exist
+        if: always()
+        run: |
+          test -f exercise2/lab-4-2.png
+          test -f exercise2/lab-4-2.py
+      - name: Exercise 2 - run tests
+        if: always()
+        run: python -m pytest exercise2/test/ --tb=no -q --no-header
+
+      # --- Exercise 3 ---
+      - name: Exercise 3 - verify files exist
+        if: always()
+        run: |
+          test -f exercise3/lab-4-3.png
+          test -f exercise3/lab-4-3.py
+      - name: Exercise 3 - run tests
+        if: always()
+        run: python -m pytest exercise3/test/ --tb=no -q --no-header
+
+      # --- Exercise 4 ---
+      - name: Exercise 4 - verify files exist
+        if: always()
+        run: |
+          test -f exercise4/lab-4-4.png
+          test -f exercise4/lab-4-4.py
+      - name: Exercise 4 - run tests
+        if: always()
+        run: python -m pytest exercise4/test/ --tb=no -q --no-header
